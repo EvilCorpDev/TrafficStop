@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TrafficDefender</string>
+    <string name="action_settings">Налаштування</string>
+    <string name="info">Інформація мережі</string>
+    <string name="stop">Зупинити інтернет</string>
+    <string name="start">Запустити інтернет</string>
+    <string name="notif_status">Мобильний інтернет був відключений.\n Ліміт мегабайт був досягнений</string>
+    <string name="stop_serv">Зупинити сервіс</string>
+    <string name="pref_Mbytes_Title">Ліміт Мегабайт</string>
+    <string name="pref_Mbytes_sum">Установити ліміт мегабайт на день</string>
+    <string name="pref_auto">Установити автозапуск</string>
+    <string name="pref_category_os">ОС</string>
+    <string name="pref_category_about">Про програму</string>
+    <string name="about">Контактна інформація</string>
+    <string name="contact">email: \nandroidghost77@gmail.com</string>
+    <string name="update">Обновити</string>
+    <string name="start_serv">Запустити сервіс</string>
+    <string name="download">Статус ліміту трафіку\nна день:</string>
+    <string name="pref_foreground">Система не може вбити програму</string>
+    <string name="statistic_text">Виберіть період \nдля формування статистики:</string>
+    <string name="week">Останні 7 днів</string>
+    <string name="month">Останні 30 днів</string>
+    <string name="six_months">Останні 180 днів</string>
+    <string name="year">Останні 365 днів</string>
+    <string name="make_stat">Сформувати статистику</string>
+    <string name="clear">Стерти всі дані</string>
+    <string name="stat">Статистика</string>
+    <string name="clear_data">Стерти всі дані з бази даних</string>
+    <string name="message">Ви впевнені, що хочете стерти всі дані?</string>
+    <string name="week_traff">Використання трафіку за день</string>
+    <string name="days">Дні</string>
+    <string name="traff_usage">Використання трафіку, Mb</string>
+    <string name="month_traff">Використання трафіку за місяць</string>
+    <string name="months">Місяці</string>
+    <string name="year_traff">Використання трафіку за рік</string>
+    <string name="yes">Так</string>
+    <string name="no">Ні</string>
+    <string name="data_day">Дані мобільного інтернету за день: </string>
+    <string name="all_data">\n Усі дані: </string>
+    <string name="traff_control">Програма контролює ваш трафік</string>
+    <string name="foreground">Дозволити foreground режим</string>
+
+</resources>

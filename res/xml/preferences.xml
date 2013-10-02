@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory
+        android:key="pref_category_os"
+        android:title="@string/pref_category_os">
+        <CheckBoxPreference 
+            android:key="pref_autorun" 
+            android:title="@string/pref_auto" 
+            android:defaultValue="true" />
+        <EditTextPreference 
+            android:key="pref_Mbytes"
+            android:title="@string/pref_Mbytes_Title" 
+            android:summary="@string/pref_Mbytes_sum"
+            android:inputType="number"
+            android:defaultValue="20" />
+        <CheckBoxPreference 
+            android:key="pref_foreground"
+            android:title="@string/foreground"
+            android:summary="@string/pref_foreground"
+            android:defaultValue="true"/>
+    </PreferenceCategory> 
+    <PreferenceCategory 
+        android:key="pref_key_about"
+        android:title="@string/pref_category_about">
+        <PreferenceScreen 
+            android:title="@string/about"
+            android:layout="@layout/about">
+        </PreferenceScreen>
+    </PreferenceCategory>
+</PreferenceScreen>

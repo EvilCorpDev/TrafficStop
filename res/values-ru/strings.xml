@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TrafficDefender</string>
+    <string name="action_settings">Настройки</string>
+    <string name="info">Информация сети</string>
+    <string name="stop">Остановить интернет</string>
+    <string name="start">Запустить интернет</string>
+    <string name="notif_status">Передача даных через мобильную сеть была отключена. \nЛимит мегабайт был достигнут.</string>
+    <string name="stop_serv">Остановить сервис</string>
+    <string name="pref_Mbytes_Title">Лимит мегабайт</string>
+    <string name="pref_Mbytes_sum">Установить лимит мегабайт для загрузки на день</string>
+    <string name="pref_auto">Установить автозагрузку</string>
+    <string name="pref_category_os">ОС</string>
+    <string name="pref_category_about">Про программу</string>
+    <string name="about">Контактная информация</string>
+    <string name="contact">email: \nandroidghost77@gmail.com</string>
+    <string name="update">Обновить</string>
+    <string name="start_serv">Запустить сервис</string>
+    <string name="download">Статус лимита трафика \nна день:</string>
+    <string name="pref_foreground">Система не может убить приложение</string>
+    <string name="statistic_text">Выберете период \nдля формирования статистики: </string>
+    <string name="week">Последние 7 дней</string>
+    <string name="month">Последние 30 дней</string>
+    <string name="six_months">Последние 180 дней</string>
+    <string name="year">Последние 365 дней</string>
+    <string name="make_stat">Сформировать статистику</string>
+    <string name="clear">Стереть все данные</string>
+    <string name="stat">Статистика</string>
+    <string name="clear_data">Стереть все данные з базы данных</string>
+    <string name="message">Вы действительно хотите стереть все данные?</string>
+    <string name="week_traff">Использование трафика за неделю</string>
+    <string name="days">Дни</string>
+    <string name="traff_usage">Исрользование трафика, Mb</string>
+    <string name="month_traff">Использование трафика за месяц</string>
+    <string name="months">Месяци</string>
+    <string name="year_traff">Использование трафика за год</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="data_day">Трафик за день : </string>
+    <string name="all_data">\n Весь трафик : </string>
+    <string name="traff_control">Приложение контролирует ваш трафик</string>
+    <string name="foreground">Разрешить работу в фоне</string>
+
+</resources>
