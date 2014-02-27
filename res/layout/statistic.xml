@@ -1,77 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/icon_web"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/statistic_text" />
+        android:orientation="vertical" >
 
-    <RadioGroup 
-        android:id="@+id/rGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp">
-        
-   		<RadioButton
-        	android:id="@+id/rBtnWeek"
-        	android:checked="true"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:text="@string/week" />
-
-    	<RadioButton
-        	android:id="@+id/rBtnMonth"
-       		android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:text="@string/month" />
-
-    	<RadioButton
-        	android:id="@+id/rBtnSixMonth"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:text="@string/six_months" />
-
-    	<RadioButton
-        	android:id="@+id/rBtnYear"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:text="@string/year" />
-    </RadioGroup>
+        <TextView
+            android:id="@+id/tvProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/statistic_text"
+            android:textColor="@color/textColor" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"  >
 
-        <Button
-            android:id="@+id/mkBtn"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:onClick="make_stat"
-            android:text="@string/make_stat" />
-
-        <Button
-            android:id="@+id/clearBtn"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:onClick="clear_data"
-            android:text="@string/clear" />
-         <com.google.ads.AdView
-            android:id="@+id/adView"
+        <RadioGroup
+            android:id="@+id/rGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-8090249245218613/5392174689"
-            ads:loadAdOnCreate="true"
-            android:layout_gravity="bottom" />
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="150dp" >
+
+            <RadioButton
+                android:id="@+id/rBtnWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/week"
+                android:textColor="@color/textColor" />
+
+            <RadioButton
+                android:id="@+id/rBtnMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/month"
+                android:textColor="@color/textColor" />
+
+            <RadioButton
+                android:id="@+id/rBtnSixMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/six_months"
+                android:textColor="@color/textColor" />
+
+            <RadioButton
+                android:id="@+id/rBtnYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/year"
+                android:textColor="@color/textColor" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp" >
+
+            <Button
+                android:id="@+id/mkBtn"
+                style="@style/ButtonTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:onClick="make_stat"
+                android:text="@string/make_stat" />
+
+            <Button
+                android:id="@+id/clearBtn"
+                style="@style/ButtonTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:onClick="clear_data"
+                android:text="@string/clear" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

@@ -16,23 +16,33 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.GestureDetector;
+import android.view.GestureDetector.OnGestureListener;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RadioGroup;
 
-public class Statistic extends Activity {
+public class Statistic extends Activity implements OnGestureListener {
 	
 	final int DIALOG_ID = 1;
+	private static final int SWIPE_MIN_DISTANCE = 120;
+    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
 	
 	Diagram d;
 	DB db;
 	SharedPreferences sPref;
 	Context context;
+	GestureDetector gestureScanner;
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		this.overridePendingTransition(R.anim.slite_in_left,R.anim.slide_out_left);
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.statistic);
+		
+		gestureScanner = new GestureDetector(this);
 		
 		d = new Diagram();
 		db = new DB(this);
@@ -196,5 +206,44 @@ public class Statistic extends Activity {
 		}
 		return arr;
 	}
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent me){
+		return gestureScanner.onTouchEvent(me);
+	}
+	public boolean onDown(MotionEvent e){
+		return true;
+	}
+	public boolean onFling(MotionEvent e1,MotionEvent e2,float velocityX,float velocityY){
+		try {
+            if (e1.getX() < e2.getX() && e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE 
+            		&& Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+            	Intent slideactivity = new Intent(this, TrafficControl.class);
+            	TrafficControl.runActivity = 1;
+            	startActivity(slideactivity);
+            }
+        } catch (Exception e) {
+            // nothing
+        }
+        return true;
+		
+	}
+	
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+		Intent slideactivity = new Intent(this, TrafficControl.class);
+    	TrafficControl.runActivity = 1;
+    	startActivity(slideactivity);
+	}
+	
+	public void onLongPress(MotionEvent e){}
+	
+	public boolean onScroll(MotionEvent e1,MotionEvent e2,float distanceX,float distanceY){
+		return true;
+	}
+	public void onShowPress(MotionEvent e){}
+	public boolean onSingleTapUp(MotionEvent e){ return true;}
 
 }

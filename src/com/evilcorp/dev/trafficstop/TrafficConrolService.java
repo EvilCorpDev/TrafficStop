@@ -11,11 +11,13 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.net.TrafficStats;
 import android.os.Binder;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 public class TrafficConrolService extends Service {
 
@@ -33,6 +35,9 @@ public class TrafficConrolService extends Service {
 	double mBytes;
 	
 	boolean isLimit;
+	boolean isRound;
+	
+	int tarif;
 	
 	DB db;
 	Controls ctr;
@@ -42,6 +47,7 @@ public class TrafficConrolService extends Service {
 		// TODO Auto-generated method stub
 		super.onCreate();
 		startTraff = TrafficStats.getMobileRxBytes() + TrafficStats.getMobileTxBytes();
+		
 	}
 	
 	@Override
@@ -56,11 +62,10 @@ public class TrafficConrolService extends Service {
 		if(!isLimit && currentTraff >= mBytes * BytesCount) {
 			ctr.changeState(false);
 			sendNotif(1, false, getResources().getString(R.string.app_name), 
-					getResources().getString(R.string.notif_status));
+					getResources().getString(R.string.notif_status), false);
 			isLimit = true;
 			sPref.edit().putBoolean("isLimit", true);
 		}
-		
 		if(sPref.getBoolean("pref_foreground", true)) {
 			Intent intent1 = new Intent(this, TrafficControl.class);
 			intent.putExtra("status", getResources().getString(R.string.notif_status));
@@ -75,12 +80,28 @@ public class TrafficConrolService extends Service {
 		}
 		else {
 			sendNotif(2, true, getResources().getString(R.string.app_name), 
-					getResources().getString(R.string.traff_control));
+					getResources().getString(R.string.traff_control), false);
+		}
+
+		if(sPref.getBoolean("pref_round", false)) {
+			isRound = true;
+			String s = sPref.getString("pref_tarif", "0 kB");
+			int space = s.indexOf(" ");
+			tarif = Integer.parseInt(s.substring(0, space));
+		}
+		else {
+			isRound = false;
+			tarif = 0;
 		}
 			
 		controlTraff();		
 		
-		return START_REDELIVER_INTENT;
+		//if(sPref.getBoolean("pref_foreground", true)) {
+			return START_REDELIVER_INTENT;
+		/*}
+		else {
+			return START_NOT_STICKY;
+		}*/
 	}
 	
 	private void initialize() {
@@ -122,12 +143,13 @@ public class TrafficConrolService extends Service {
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
-		
+		Log.d("myLogs", "onDestroy serve");
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.DATE, 0);
 		db.updateRec(c.get(Calendar.DATE) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR), traff);
 		db.close();
 		disableTimers();
+		
 	}
 	
 	private void disableTimers() {
@@ -160,22 +182,55 @@ public class TrafficConrolService extends Service {
 						+ TrafficStats.getMobileTxBytes() + currentTraff - startTraff;	
 				double allTraff = traff;
 				if(db.dbIsOpen()) {
-					HashMap<String, Double> hm2 = db.getDateData(c.get(Calendar.DATE) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR));			
+					HashMap<String, Double> hm2 = db.getDateData(c.get(Calendar.DATE) 
+							+ "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR));			
 					if(hm2 != null) {
+						//Log.d("myLogs", "end = " + hm2.get("end"));
 						allTraff += hm2.get("end");
 					}
 				}
 				Intent intent  = new Intent(TrafficControl.BROADCAST_ACTION)
-				.putExtra("allTraff", (allTraff)/BytesCount)
-				.putExtra("traff", traff/BytesCount);
+				.putExtra("allTraff", allTraff/BytesCount)
+				.putExtra("traff", traff/BytesCount)
+				.putExtra("mBytes", mBytes);
+				//Log.d("myLogs", "Service Info: allTraff = " + allTraff + " traff = " + traff);
 				sendBroadcast(intent);
-				if(!isLimit && traff >= mBytes * BytesCount) {
-					ctr.changeState(false);
-					sendNotif(1, false, getResources().getString(R.string.app_name), 
-							getResources().getString(R.string.notif_status));
-					isLimit = true;
-					sPref.edit().putBoolean("isLimit", true);
-					db.updateRec(c.get(Calendar.DATE) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR), traff);
+				if(!ctr.isConnected()) {
+					if(sPref.getBoolean("Disconect", true) && tarif > 0) {
+						traff += (tarif - ((int)traff % tarif));
+						Editor ed = sPref.edit();
+						ed.putBoolean("Disconect", false);
+						ed.putBoolean("Connected", true);
+						ed.commit();
+					}
+				}
+				else if(ctr.isConnected()) {
+					if(sPref.getBoolean("Connected", true)) {
+						Editor ed = sPref.edit();
+						ed.putBoolean("Disconect", true);
+						ed.putBoolean("Connected", false);
+						ed.commit();
+					}
+				}
+				if(isRound) {
+					if(!isLimit && Math.round(traff) >= mBytes * BytesCount) {
+						ctr.changeState(false);
+						sendNotif(1, false, getResources().getString(R.string.app_name), 
+								getResources().getString(R.string.notif_status), false);
+						isLimit = true;
+						sPref.edit().putBoolean("isLimit", true);
+						db.updateRec(c.get(Calendar.DATE) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR), traff);
+					}
+				}
+				else {
+					if(!isLimit && traff >= mBytes * BytesCount) {
+						ctr.changeState(false);
+						sendNotif(1, false, getResources().getString(R.string.app_name), 
+								getResources().getString(R.string.notif_status), false);
+						isLimit = true;
+						sPref.edit().putBoolean("isLimit", true);
+						db.updateRec(c.get(Calendar.DATE) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR), traff);
+					}
 				}
 				
 				changeRecs();
@@ -207,8 +262,13 @@ public class TrafficConrolService extends Service {
 		
 	}
 	
-	public void sendNotif(int id, boolean ongoing, String title, String text) {
+	public void sendNotif(int id, boolean ongoing, String title, String text, Boolean cancel) {
 		NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+		
+		if(cancel) {
+			nm.cancel(id);
+			return;
+		}
 		
 		notif = new NotificationCompat.Builder(this)
 		        .setSmallIcon(R.drawable.icon)

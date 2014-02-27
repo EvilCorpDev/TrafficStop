@@ -146,7 +146,6 @@ public class DB {
 			double start = TrafficStats.getMobileRxBytes() + TrafficStats.getMobileTxBytes();
 			cv.put(COLUMN_START, start);
 			cv.put(COLUMN_END, start);
-			
 			db.insert(DB_TABLE, null, cv);
 			
 		}

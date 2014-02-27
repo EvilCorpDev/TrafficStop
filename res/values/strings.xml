@@ -7,7 +7,7 @@
     <string name="stop">Stop internet</string>
     <string name="start">Start Internet</string>
     <string name="notif_status">Mobile internet was disabled, limit of mBytes was achieved.</string>
-    <string name="stop_serv">Stop service</string>
+    <string name="stop_serv">Stop control</string>
     <string name="pref_Mbytes_Title">Limit of Mbytes</string>
     <string name="pref_Mbytes_sum">Set the limit of Mbytes to download for a day</string>
     <string name="pref_auto">Set autorun</string>
@@ -21,8 +21,8 @@
     <string name="about">Contact information</string>
     <string name="contact">email: \nandroidghost77@gmail.com</string>
     <string name="update">Update</string>
-    <string name="start_serv">Start service</string>
-    <string name="download">Traffic limit status \nfor a day:</string>
+    <string name="start_serv">Start control</string>
+    <string name="download">Used traffic status \nfor a day:</string>
     <string name="pref_foreground">System can not kill the app</string>
     <string name="statistic_text">Select period for statistic:</string>
     <string name="week">Last 7 days</string>
@@ -46,5 +46,40 @@
     <string name="all_data">\n All mobile data: </string>
     <string name="traff_control">Application is controlling your traffic</string>
     <string name="foreground">Enable foreground</string>
+    <string name="limit_status">Traffic limit per day:\n</string>
+    <string name="widget_name">Traffic Widget</string>
+	<string name="widget_text">Text in widget</string>
+	<string name="dialog_name">Rate the app</string>
+	<string name="dialog_msg">Please rate our app.</string>
+	<string name="dialog_rate">Rate</string>
+	<string name="dialog_never">Never</string>
+	<string name="dialog_later">Later</string>
+	<string name="widget_left">Remaining traffic:</string>
+	<string name="widget_used">Used traffic:</string>
+	<string name="widget_all">All traffic:</string>
+	<string name="stopped_service">Service was stopped</string>
+	<string name="started_service">Service was started</string>
+	<string name="pref_about">About programm</string>
+	<string name="pref_internet_category">Internet</string>
+	<string-array name="pref_internet_values">
+	    <item > 0 kB</item>
+		<item >10 kB</item>
+		<item >50 kB</item>
+		<item >100 kB</item>
+		<item >200 kB</item>
+		<item >500 kB</item>
+	</string-array>
+	<string name="pref_internet_round">Round the traffic</string>
+	<string name="pref_internet_tarif">Set tarification rounding</string>
+	<string name="pref_internet_tarif_summary">This will round your traffic to the selected value every time, when internet session is disconected</string>
+	<string name="pref_internet_round_summ">Enable rounding the traffic</string>
+	<integer-array name="pref_internet_int_value">
+		<item >0</item>
+		<item >1</item>
+		<item >2</item>
+		<item >3</item>
+		<item> 4</item>
+	</integer-array>
+	<string name="pref_tarif_val">Tarification values</string>
 
 </resources>

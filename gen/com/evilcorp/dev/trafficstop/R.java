@@ -8,7 +8,27 @@
 package com.evilcorp.dev.trafficstop;
 
 public final class R {
+    public static final class anim {
+        public static final int slide_out_left=0x7f040000;
+        public static final int slide_out_right=0x7f040001;
+        public static final int slite_in_left=0x7f040002;
+        public static final int slite_in_right=0x7f040003;
+    }
+    public static final class array {
+        public static final int pref_internet_int_value=0x7f090001;
+        public static final int pref_internet_values=0x7f090000;
+    }
     public static final class attr {
+    }
+    public static final class color {
+        public static final int White=0x7f060007;
+        public static final int button_focused_color_end=0x7f060002;
+        public static final int button_focused_color_start=0x7f060001;
+        public static final int button_normal_color_end=0x7f060004;
+        public static final int button_normal_color_start=0x7f060003;
+        public static final int button_pressed_color_end=0x7f060006;
+        public static final int button_pressed_color_start=0x7f060005;
+        public static final int textColor=0x7f060000;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -19,87 +39,126 @@ public final class R {
  Default screen margins, per the Android Design guidelines. 
  Default screen margins, per the Android Design guidelines. 
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int activity_horizontal_margin=0x7f070000;
+        public static final int activity_vertical_margin=0x7f070001;
+        /**  Default screen margins, per the Android Design guidelines. 
+         */
+        public static final int widget_margin=0x7f070002;
     }
     public static final class drawable {
-        public static final int button_pressed=0x7f020000;
-        public static final int button_pressed_start=0x7f020001;
-        public static final int button_up=0x7f020002;
-        public static final int button_up_start=0x7f020003;
-        public static final int ic_launcher=0x7f020004;
-        public static final int icon=0x7f020005;
+        public static final int back=0x7f020000;
+        public static final int background1=0x7f020001;
+        public static final int background2=0x7f020002;
+        public static final int button=0x7f020003;
+        public static final int button_focused=0x7f020004;
+        public static final int button_normal=0x7f020005;
+        public static final int button_pressed=0x7f020006;
+        public static final int ic_launcher=0x7f020007;
+        public static final int icon=0x7f020008;
+        public static final int icon_web=0x7f020009;
+        public static final int widget_back=0x7f02000a;
+        public static final int widget_preview=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000e;
-        public static final int adView=0x7f090006;
-        public static final int clearBtn=0x7f09000d;
-        public static final int imView=0x7f090004;
-        public static final int mkBtn=0x7f09000c;
-        public static final int pbLimit=0x7f090005;
-        public static final int rBtnMonth=0x7f090009;
-        public static final int rBtnSixMonth=0x7f09000a;
-        public static final int rBtnWeek=0x7f090008;
-        public static final int rBtnYear=0x7f09000b;
-        public static final int rGroup=0x7f090007;
-        public static final int stat=0x7f09000f;
-        public static final int textView1=0x7f090000;
-        public static final int textView2=0x7f090001;
-        public static final int tvInfo=0x7f090002;
-        public static final int tvMain=0x7f090003;
+        public static final int RelativeLayout1=0x7f0c000a;
+        public static final int action_settings=0x7f0c0017;
+        public static final int adView=0x7f0c0003;
+        public static final int button1=0x7f0c0006;
+        public static final int button2=0x7f0c0007;
+        public static final int clearBtn=0x7f0c0011;
+        public static final int lvMain=0x7f0c0002;
+        public static final int mkBtn=0x7f0c0010;
+        public static final int pbLimit=0x7f0c0008;
+        public static final int rBtnMonth=0x7f0c000d;
+        public static final int rBtnSixMonth=0x7f0c000e;
+        public static final int rBtnWeek=0x7f0c000c;
+        public static final int rBtnYear=0x7f0c000f;
+        public static final int rGroup=0x7f0c000b;
+        public static final int stat=0x7f0c0018;
+        public static final int textLimit=0x7f0c0009;
+        public static final int textView2=0x7f0c0001;
+        public static final int tvAll=0x7f0c0016;
+        public static final int tvInfo=0x7f0c0004;
+        public static final int tvInfoDigit=0x7f0c0014;
+        public static final int tvInfoLeft=0x7f0c0013;
+        public static final int tvMain=0x7f0c0005;
+        public static final int tvProgress=0x7f0c0000;
+        public static final int tvUsed=0x7f0c0015;
+        public static final int widgetLayout=0x7f0c0012;
     }
     public static final class layout {
         public static final int about=0x7f030000;
         public static final int main=0x7f030001;
         public static final int statistic=0x7f030002;
+        public static final int widget=0x7f030003;
     }
     public static final class menu {
-        public static final int traffic_control=0x7f080000;
+        public static final int traffic_control=0x7f0b0000;
     }
     public static final class string {
-        public static final int about=0x7f06000f;
-        public static final int action_settings=0x7f060001;
-        public static final int all_data=0x7f060028;
-        public static final int app_name=0x7f060000;
-        public static final int clear=0x7f06001b;
-        public static final int clear_data=0x7f06001d;
-        public static final int contact=0x7f060010;
-        public static final int data_day=0x7f060027;
-        public static final int days=0x7f060020;
-        public static final int download=0x7f060013;
-        public static final int foreground=0x7f06002a;
-        public static final int info=0x7f060002;
-        public static final int make_stat=0x7f06001a;
-        public static final int message=0x7f06001e;
-        public static final int month=0x7f060017;
-        public static final int month_traff=0x7f060022;
-        public static final int months=0x7f060023;
-        public static final int no=0x7f060026;
-        public static final int notif_status=0x7f060005;
-        public static final int pref_Mbytes_Title=0x7f060007;
-        public static final int pref_Mbytes_sum=0x7f060008;
-        public static final int pref_auto=0x7f060009;
-        public static final int pref_category_about=0x7f06000e;
-        public static final int pref_category_appearence=0x7f06000d;
-        public static final int pref_category_os=0x7f06000c;
-        public static final int pref_foreground=0x7f060014;
-        public static final int pref_skin=0x7f06000a;
-        public static final int pref_skin_sum=0x7f06000b;
-        public static final int six_months=0x7f060018;
-        public static final int start=0x7f060004;
-        public static final int start_serv=0x7f060012;
-        public static final int stat=0x7f06001c;
-        public static final int statistic_text=0x7f060015;
-        public static final int stop=0x7f060003;
-        public static final int stop_serv=0x7f060006;
-        public static final int traff_control=0x7f060029;
-        public static final int traff_usage=0x7f060021;
-        public static final int update=0x7f060011;
-        public static final int week=0x7f060016;
-        public static final int week_traff=0x7f06001f;
-        public static final int year=0x7f060019;
-        public static final int year_traff=0x7f060024;
-        public static final int yes=0x7f060025;
+        public static final int about=0x7f08000f;
+        public static final int action_settings=0x7f080001;
+        public static final int all_data=0x7f080028;
+        public static final int app_name=0x7f080000;
+        public static final int clear=0x7f08001b;
+        public static final int clear_data=0x7f08001d;
+        public static final int contact=0x7f080010;
+        public static final int data_day=0x7f080027;
+        public static final int days=0x7f080020;
+        public static final int dialog_later=0x7f080032;
+        public static final int dialog_msg=0x7f08002f;
+        public static final int dialog_name=0x7f08002e;
+        public static final int dialog_never=0x7f080031;
+        public static final int dialog_rate=0x7f080030;
+        public static final int download=0x7f080013;
+        public static final int foreground=0x7f08002a;
+        public static final int info=0x7f080002;
+        public static final int limit_status=0x7f08002b;
+        public static final int make_stat=0x7f08001a;
+        public static final int message=0x7f08001e;
+        public static final int month=0x7f080017;
+        public static final int month_traff=0x7f080022;
+        public static final int months=0x7f080023;
+        public static final int no=0x7f080026;
+        public static final int notif_status=0x7f080005;
+        public static final int pref_Mbytes_Title=0x7f080007;
+        public static final int pref_Mbytes_sum=0x7f080008;
+        public static final int pref_about=0x7f080038;
+        public static final int pref_auto=0x7f080009;
+        public static final int pref_category_about=0x7f08000e;
+        public static final int pref_category_appearence=0x7f08000d;
+        public static final int pref_category_os=0x7f08000c;
+        public static final int pref_foreground=0x7f080014;
+        public static final int pref_internet_category=0x7f080039;
+        public static final int pref_internet_round=0x7f08003a;
+        public static final int pref_internet_round_summ=0x7f08003d;
+        public static final int pref_internet_tarif=0x7f08003b;
+        public static final int pref_internet_tarif_summary=0x7f08003c;
+        public static final int pref_skin=0x7f08000a;
+        public static final int pref_skin_sum=0x7f08000b;
+        public static final int pref_tarif_val=0x7f08003e;
+        public static final int six_months=0x7f080018;
+        public static final int start=0x7f080004;
+        public static final int start_serv=0x7f080012;
+        public static final int started_service=0x7f080037;
+        public static final int stat=0x7f08001c;
+        public static final int statistic_text=0x7f080015;
+        public static final int stop=0x7f080003;
+        public static final int stop_serv=0x7f080006;
+        public static final int stopped_service=0x7f080036;
+        public static final int traff_control=0x7f080029;
+        public static final int traff_usage=0x7f080021;
+        public static final int update=0x7f080011;
+        public static final int week=0x7f080016;
+        public static final int week_traff=0x7f08001f;
+        public static final int widget_all=0x7f080035;
+        public static final int widget_left=0x7f080033;
+        public static final int widget_name=0x7f08002c;
+        public static final int widget_text=0x7f08002d;
+        public static final int widget_used=0x7f080034;
+        public static final int year=0x7f080019;
+        public static final int year_traff=0x7f080024;
+        public static final int yes=0x7f080025;
     }
     public static final class style {
         /** 
@@ -141,7 +200,7 @@ public final class R {
             backward-compatibility can go here.
         
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f0a0000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
  Application theme. 
@@ -149,10 +208,12 @@ public final class R {
  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
-        public static final int DarkTheme=0x7f070002;
+        public static final int AppTheme=0x7f0a0001;
+        public static final int ButtonTheme=0x7f0a0003;
+        public static final int DarkTheme=0x7f0a0002;
     }
     public static final class xml {
-        public static final int preferences=0x7f040000;
+        public static final int preferences=0x7f050000;
+        public static final int widget_metadata=0x7f050001;
     }
 }

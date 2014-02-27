@@ -17,7 +17,7 @@
     <string name="contact">email: \nandroidghost77@gmail.com</string>
     <string name="update">Обновити</string>
     <string name="start_serv">Запустити сервіс</string>
-    <string name="download">Статус ліміту трафіку\nна день:</string>
+    <string name="download">Статус використаного трафіку\nна день:</string>
     <string name="pref_foreground">Система не може вбити програму</string>
     <string name="statistic_text">Виберіть період \nдля формування статистики:</string>
     <string name="week">Останні 7 днів</string>
@@ -41,5 +41,6 @@
     <string name="all_data">\n Усі дані: </string>
     <string name="traff_control">Програма контролює ваш трафік</string>
     <string name="foreground">Дозволити foreground режим</string>
+    <string name="limit_status">Ліміт трафіку на день:\n</string>
 
 </resources>
