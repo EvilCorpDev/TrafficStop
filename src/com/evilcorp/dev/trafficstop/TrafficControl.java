@@ -68,9 +68,7 @@ public class TrafficControl extends Activity implements OnSharedPreferenceChange
 		setContentView(R.layout.main);
 		
 		initialize();
-		
-		// isEnable = ctr.isConnected();
-		 
+				 
 		startService(new Intent(this, TrafficConrolService.class).putExtra("mBytes", mBytes));
 		
 		br = new BroadcastReceiver() {

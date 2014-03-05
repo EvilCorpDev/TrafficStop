@@ -53,11 +53,13 @@ public final class R {
         public static final int button_focused=0x7f020004;
         public static final int button_normal=0x7f020005;
         public static final int button_pressed=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int icon=0x7f020008;
-        public static final int icon_web=0x7f020009;
-        public static final int widget_back=0x7f02000a;
-        public static final int widget_preview=0x7f02000b;
+        public static final int hint1=0x7f020007;
+        public static final int hinteng=0x7f020008;
+        public static final int ic_launcher=0x7f020009;
+        public static final int icon=0x7f02000a;
+        public static final int icon_web=0x7f02000b;
+        public static final int widget_back=0x7f02000c;
+        public static final int widget_preview=0x7f02000d;
     }
     public static final class id {
         public static final int RelativeLayout1=0x7f0c000a;
@@ -88,9 +90,10 @@ public final class R {
     }
     public static final class layout {
         public static final int about=0x7f030000;
-        public static final int main=0x7f030001;
-        public static final int statistic=0x7f030002;
-        public static final int widget=0x7f030003;
+        public static final int first_start=0x7f030001;
+        public static final int main=0x7f030002;
+        public static final int statistic=0x7f030003;
+        public static final int widget=0x7f030004;
     }
     public static final class menu {
         public static final int traffic_control=0x7f0b0000;

@@ -2,9 +2,11 @@ package com.evilcorp.dev.trafficstop;
 
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -96,12 +98,12 @@ public class TrafficConrolService extends Service {
 			
 		controlTraff();		
 		
-		//if(sPref.getBoolean("pref_foreground", true)) {
+		if(sPref.getBoolean("pref_foreground", true)) {
 			return START_REDELIVER_INTENT;
-		/*}
+		}
 		else {
 			return START_NOT_STICKY;
-		}*/
+		}
 	}
 	
 	private void initialize() {
@@ -149,6 +151,17 @@ public class TrafficConrolService extends Service {
 		db.updateRec(c.get(Calendar.DATE) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR), traff);
 		db.close();
 		disableTimers();
+		sendNotif(2, false, getResources().getString(R.string.app_name), 
+				getResources().getString(R.string.traff_control), true);
+		ActivityManager am = (ActivityManager) this
+				.getSystemService(ACTIVITY_SERVICE);
+		List<ActivityManager.RunningServiceInfo> rs = am.getRunningServices(50);
+
+		for (int i = 0; i < rs.size(); i++) {
+			ActivityManager.RunningServiceInfo rsi = rs.get(i);
+			Log.d("myLogs", "Process " + rsi.process + " with component "
+					+ rsi.service.getClassName());
+		}
 		
 	}
 	
@@ -193,7 +206,6 @@ public class TrafficConrolService extends Service {
 				.putExtra("allTraff", allTraff/BytesCount)
 				.putExtra("traff", traff/BytesCount)
 				.putExtra("mBytes", mBytes);
-				//Log.d("myLogs", "Service Info: allTraff = " + allTraff + " traff = " + traff);
 				sendBroadcast(intent);
 				if(!ctr.isConnected()) {
 					if(sPref.getBoolean("Disconect", true) && tarif > 0) {
@@ -265,16 +277,17 @@ public class TrafficConrolService extends Service {
 	public void sendNotif(int id, boolean ongoing, String title, String text, Boolean cancel) {
 		NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 		
-		if(cancel) {
-			nm.cancel(id);
-			return;
-		}
-		
 		notif = new NotificationCompat.Builder(this)
 		        .setSmallIcon(R.drawable.icon)
 		        .setContentTitle(title)
 		        .setContentText(text)
 		        .setOngoing(ongoing);
+		
+		if(cancel) {
+			nm.cancel(id);
+			notif.setOngoing(false);
+			return;
+		}
 		
 		if(!ongoing){
 			 notif.setDefaults(Notification.DEFAULT_VIBRATE);

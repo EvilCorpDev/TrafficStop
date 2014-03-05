@@ -95,7 +95,6 @@ public class DB {
 		cv.put(COLUMN_DATE, date);
 		cv.put(COLUMN_START, start);
 		cv.put(COLUMN_END, end);
-		
 		db.insert(DB_TABLE, null, cv);
 	}
 	
