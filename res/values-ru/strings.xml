@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">TrafficDefender</string>
     <string name="action_settings">Настройки</string>
     <string name="info">Информация сети</string>
@@ -14,7 +13,7 @@
     <string name="pref_category_os">ОС</string>
     <string name="pref_category_about">Про программу</string>
     <string name="about">Контактная информация</string>
-    <string name="contact">email: \nandroidghost77@gmail.com</string>
+    <string name="contact">email: \n<u>androidghost77@gmail.com</u></string>
     <string name="update">Обновить</string>
     <string name="start_serv">Запустить сервис</string>
     <string name="download">Статус использованого трафика \nна день:</string>
@@ -42,5 +41,43 @@
     <string name="traff_control">Приложение контролирует ваш трафик</string>
     <string name="foreground">Разрешить работу в фоне</string>
     <string name="limit_status">Лимит трафика на день:\n</string>
-
+    <string name="widget_name">Traffic Widget</string>
+	<string name="dialog_name">Оцените приложение</string>
+	<string name="dialog_msg">Пожалуйста, оцените наше приложение.</string>
+	<string name="dialog_rate">Оценить</string>
+	<string name="dialog_never">Никогда</string>
+	<string name="dialog_later">Позже</string>
+	<string name="widget_left">Оставшийся трафик:</string>
+	<string name="widget_used">Использованный трафик:</string>
+	<string name="widget_all">Весь трафик:</string>
+	<string name="stopped_service">Сервис был остановлен</string>
+	<string name="started_service">Сервис был запущен</string>
+	<string name="pref_about">О программе</string>
+	<string name="pref_internet_category">Интернет</string>
+	<string-array name="pref_internet_values">
+	    <item > 0 kB</item>
+		<item >10 kB</item>
+		<item >50 kB</item>
+		<item >100 kB</item>
+		<item >200 kB</item>
+		<item >500 kB</item>
+	</string-array>
+	<string name="pref_internet_round">Округлять трафик</string>
+	<string name="pref_internet_tarif">Указать тарификационное округление</string>
+	<string name="pref_internet_tarif_summary">Это будет округлять ваш трафик к выбранной величине каждый раз, когда интернет сессия будет разрываться</string>
+	<string name="pref_internet_round_summ">Включить округление трафика</string>
+	<integer-array name="pref_internet_int_value">
+		<item >0</item>
+		<item >1</item>
+		<item >2</item>
+		<item >3</item>
+		<item> 4</item>
+	</integer-array>
+	<string name="pref_tarif_val">Тарификациооные величины</string>
+	<string name="help_dev">Помощь разработчику</string>
+	<string name="web_money">wmu: \nU595726339489</string>
+	<string name="privat">Номер банковской карты: \n5168 7553 5153 4660</string>
+	<string name="version">Версия 2.0</string>
+	<string name="date_release">Март 2014</string>
+	<string name="copyright">Copyright © EvilCorp Dev 2013–2014</string>
 </resources>

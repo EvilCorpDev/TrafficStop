@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">TrafficDefender</string>
     <string name="action_settings">Settings</string>
     <string name="info">Network Info</string>
@@ -11,15 +10,10 @@
     <string name="pref_Mbytes_Title">Limit of Mbytes</string>
     <string name="pref_Mbytes_sum">Set the limit of Mbytes to download for a day</string>
     <string name="pref_auto">Set autorun</string>
-    <string name="pref_skin">Skin</string>
-    <string name="pref_skin_sum">Set skin of application</string>
-    
-    
     <string name="pref_category_os">OS</string>
-    <string name="pref_category_appearence">Appearance</string>
     <string name="pref_category_about">About</string>
     <string name="about">Contact information</string>
-    <string name="contact">email: \nandroidghost77@gmail.com</string>
+    <string name="contact">email: \n<u>androidghost77@gmail.com</u></string>
     <string name="update">Update</string>
     <string name="start_serv">Start control</string>
     <string name="download">Used traffic status \nfor a day:</string>
@@ -48,7 +42,6 @@
     <string name="foreground">Enable foreground</string>
     <string name="limit_status">Traffic limit per day:\n</string>
     <string name="widget_name">Traffic Widget</string>
-	<string name="widget_text">Text in widget</string>
 	<string name="dialog_name">Rate the app</string>
 	<string name="dialog_msg">Please rate our app.</string>
 	<string name="dialog_rate">Rate</string>
@@ -81,5 +74,10 @@
 		<item> 4</item>
 	</integer-array>
 	<string name="pref_tarif_val">Tarification values</string>
-
+	<string name="help_dev">Help the developer</string>
+	<string name="web_money">wmu: \nU595726339489</string>
+	<string name="privat">Bank card number: \n5168 7553 5153 4660</string>
+	<string name="version">Version 2.0</string>
+	<string name="date_release">March 2014</string>
+	<string name="copyright">Copyright © EvilCorp Dev 2013–2014</string>
 </resources>
