@@ -2,11 +2,9 @@ package com.evilcorp.dev.trafficstop;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -165,15 +163,6 @@ public class TrafficConrolService extends Service {
 		disableTimers();
 		sendNotif(2, false, getResources().getString(R.string.app_name),
 				getResources().getString(R.string.traff_control), true);
-		ActivityManager am = (ActivityManager) this
-				.getSystemService(ACTIVITY_SERVICE);
-		List<ActivityManager.RunningServiceInfo> rs = am.getRunningServices(50);
-
-		for (int i = 0; i < rs.size(); i++) {
-			ActivityManager.RunningServiceInfo rsi = rs.get(i);
-			Log.d("myLogs", "Process " + rsi.process + " with component "
-					+ rsi.service.getClassName());
-		}
 
 	}
 

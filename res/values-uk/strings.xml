@@ -47,7 +47,7 @@
 	<string name="dialog_rate">Оцінити</string>
 	<string name="dialog_never">Ніколи</string>
 	<string name="dialog_later">Пізніше</string>
-	<string name="widget_left">Залашавшийся трафік:</string>
+	<string name="widget_left">Залишившийся \nтрафік:</string>
 	<string name="widget_used">Використаний трафік:</string>
 	<string name="widget_all">Увесь трафік:</string>
 	<string name="stopped_service">Сервіс був зупинений</string>
@@ -63,7 +63,7 @@
 		<item >500 kB</item>
 	</string-array>
 	<string name="pref_internet_round">Округляти трафік</string>
-	<string name="pref_internet_tarif">Указати тарифікаціне округлення</string>
+	<string name="pref_internet_tarif">Указати тарифікаційне округлення</string>
 	<string name="pref_internet_tarif_summary">Це буде округляти ваш трафік до вибраної величини кожний раз, коли інтернет сесія буде розриватися</string>
 	<string name="pref_internet_round_summ">Включити округлення трафіка</string>
 	<integer-array name="pref_internet_int_value">
