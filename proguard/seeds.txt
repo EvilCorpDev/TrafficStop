@@ -62,23 +62,52 @@ android.support.v4.widget.SlidingPaneLayout: void setShadowDrawable(android.grap
 android.support.v4.widget.SlidingPaneLayout: void setShadowResource(int)
 android.support.v4.widget.SlidingPaneLayout$SavedState
 android.support.v4.widget.SlidingPaneLayout$SavedState: android.os.Parcelable$Creator CREATOR
+com.evilcorp.dev.trafficstop.About
+com.evilcorp.dev.trafficstop.About: About()
+com.evilcorp.dev.trafficstop.About: void sendMessage(android.view.View)
 com.evilcorp.dev.trafficstop.AutoBroadReceiv
 com.evilcorp.dev.trafficstop.AutoBroadReceiv: AutoBroadReceiv()
-com.evilcorp.dev.trafficstop.Controls: void changeState(boolean)
 com.evilcorp.dev.trafficstop.Preferences
 com.evilcorp.dev.trafficstop.Preferences: Preferences()
+com.evilcorp.dev.trafficstop.R$anim: int slide_out_left
+com.evilcorp.dev.trafficstop.R$anim: int slide_out_right
+com.evilcorp.dev.trafficstop.R$anim: int slite_in_left
+com.evilcorp.dev.trafficstop.R$anim: int slite_in_right
+com.evilcorp.dev.trafficstop.R$array: int pref_internet_int_value
+com.evilcorp.dev.trafficstop.R$array: int pref_internet_values
+com.evilcorp.dev.trafficstop.R$color: int White
+com.evilcorp.dev.trafficstop.R$color: int button_focused_color_end
+com.evilcorp.dev.trafficstop.R$color: int button_focused_color_start
+com.evilcorp.dev.trafficstop.R$color: int button_normal_color_end
+com.evilcorp.dev.trafficstop.R$color: int button_normal_color_start
+com.evilcorp.dev.trafficstop.R$color: int button_pressed_color_end
+com.evilcorp.dev.trafficstop.R$color: int button_pressed_color_start
+com.evilcorp.dev.trafficstop.R$color: int textColor
 com.evilcorp.dev.trafficstop.R$dimen: int activity_horizontal_margin
 com.evilcorp.dev.trafficstop.R$dimen: int activity_vertical_margin
+com.evilcorp.dev.trafficstop.R$dimen: int widget_margin
+com.evilcorp.dev.trafficstop.R$drawable: int back
+com.evilcorp.dev.trafficstop.R$drawable: int background1
+com.evilcorp.dev.trafficstop.R$drawable: int background2
+com.evilcorp.dev.trafficstop.R$drawable: int button
+com.evilcorp.dev.trafficstop.R$drawable: int button_focused
+com.evilcorp.dev.trafficstop.R$drawable: int button_normal
 com.evilcorp.dev.trafficstop.R$drawable: int button_pressed
-com.evilcorp.dev.trafficstop.R$drawable: int button_pressed_start
-com.evilcorp.dev.trafficstop.R$drawable: int button_up
-com.evilcorp.dev.trafficstop.R$drawable: int button_up_start
+com.evilcorp.dev.trafficstop.R$drawable: int hint1
+com.evilcorp.dev.trafficstop.R$drawable: int hinteng
 com.evilcorp.dev.trafficstop.R$drawable: int ic_launcher
 com.evilcorp.dev.trafficstop.R$drawable: int icon
+com.evilcorp.dev.trafficstop.R$drawable: int icon_web
+com.evilcorp.dev.trafficstop.R$drawable: int info
+com.evilcorp.dev.trafficstop.R$drawable: int widget_back
+com.evilcorp.dev.trafficstop.R$drawable: int widget_preview
+com.evilcorp.dev.trafficstop.R$id: int RelativeLayout1
 com.evilcorp.dev.trafficstop.R$id: int action_settings
 com.evilcorp.dev.trafficstop.R$id: int adView
+com.evilcorp.dev.trafficstop.R$id: int button1
+com.evilcorp.dev.trafficstop.R$id: int button2
 com.evilcorp.dev.trafficstop.R$id: int clearBtn
-com.evilcorp.dev.trafficstop.R$id: int imView
+com.evilcorp.dev.trafficstop.R$id: int lvMain
 com.evilcorp.dev.trafficstop.R$id: int mkBtn
 com.evilcorp.dev.trafficstop.R$id: int pbLimit
 com.evilcorp.dev.trafficstop.R$id: int rBtnMonth
@@ -87,13 +116,28 @@ com.evilcorp.dev.trafficstop.R$id: int rBtnWeek
 com.evilcorp.dev.trafficstop.R$id: int rBtnYear
 com.evilcorp.dev.trafficstop.R$id: int rGroup
 com.evilcorp.dev.trafficstop.R$id: int stat
+com.evilcorp.dev.trafficstop.R$id: int textLimit
 com.evilcorp.dev.trafficstop.R$id: int textView1
 com.evilcorp.dev.trafficstop.R$id: int textView2
+com.evilcorp.dev.trafficstop.R$id: int textView3
+com.evilcorp.dev.trafficstop.R$id: int textView4
+com.evilcorp.dev.trafficstop.R$id: int textView5
+com.evilcorp.dev.trafficstop.R$id: int textView6
+com.evilcorp.dev.trafficstop.R$id: int textView7
+com.evilcorp.dev.trafficstop.R$id: int textView8
+com.evilcorp.dev.trafficstop.R$id: int tvAll
 com.evilcorp.dev.trafficstop.R$id: int tvInfo
+com.evilcorp.dev.trafficstop.R$id: int tvInfoDigit
+com.evilcorp.dev.trafficstop.R$id: int tvInfoLeft
 com.evilcorp.dev.trafficstop.R$id: int tvMain
+com.evilcorp.dev.trafficstop.R$id: int tvProgress
+com.evilcorp.dev.trafficstop.R$id: int tvUsed
+com.evilcorp.dev.trafficstop.R$id: int widgetLayout
 com.evilcorp.dev.trafficstop.R$layout: int about
+com.evilcorp.dev.trafficstop.R$layout: int first_start
 com.evilcorp.dev.trafficstop.R$layout: int main
 com.evilcorp.dev.trafficstop.R$layout: int statistic
+com.evilcorp.dev.trafficstop.R$layout: int widget
 com.evilcorp.dev.trafficstop.R$menu: int traffic_control
 com.evilcorp.dev.trafficstop.R$string: int about
 com.evilcorp.dev.trafficstop.R$string: int action_settings
@@ -102,11 +146,20 @@ com.evilcorp.dev.trafficstop.R$string: int app_name
 com.evilcorp.dev.trafficstop.R$string: int clear
 com.evilcorp.dev.trafficstop.R$string: int clear_data
 com.evilcorp.dev.trafficstop.R$string: int contact
+com.evilcorp.dev.trafficstop.R$string: int copyright
 com.evilcorp.dev.trafficstop.R$string: int data_day
+com.evilcorp.dev.trafficstop.R$string: int date_release
 com.evilcorp.dev.trafficstop.R$string: int days
+com.evilcorp.dev.trafficstop.R$string: int dialog_later
+com.evilcorp.dev.trafficstop.R$string: int dialog_msg
+com.evilcorp.dev.trafficstop.R$string: int dialog_name
+com.evilcorp.dev.trafficstop.R$string: int dialog_never
+com.evilcorp.dev.trafficstop.R$string: int dialog_rate
 com.evilcorp.dev.trafficstop.R$string: int download
 com.evilcorp.dev.trafficstop.R$string: int foreground
+com.evilcorp.dev.trafficstop.R$string: int help_dev
 com.evilcorp.dev.trafficstop.R$string: int info
+com.evilcorp.dev.trafficstop.R$string: int limit_status
 com.evilcorp.dev.trafficstop.R$string: int make_stat
 com.evilcorp.dev.trafficstop.R$string: int message
 com.evilcorp.dev.trafficstop.R$string: int month
@@ -116,32 +169,47 @@ com.evilcorp.dev.trafficstop.R$string: int no
 com.evilcorp.dev.trafficstop.R$string: int notif_status
 com.evilcorp.dev.trafficstop.R$string: int pref_Mbytes_Title
 com.evilcorp.dev.trafficstop.R$string: int pref_Mbytes_sum
+com.evilcorp.dev.trafficstop.R$string: int pref_about
 com.evilcorp.dev.trafficstop.R$string: int pref_auto
 com.evilcorp.dev.trafficstop.R$string: int pref_category_about
-com.evilcorp.dev.trafficstop.R$string: int pref_category_appearence
 com.evilcorp.dev.trafficstop.R$string: int pref_category_os
 com.evilcorp.dev.trafficstop.R$string: int pref_foreground
-com.evilcorp.dev.trafficstop.R$string: int pref_skin
-com.evilcorp.dev.trafficstop.R$string: int pref_skin_sum
+com.evilcorp.dev.trafficstop.R$string: int pref_internet_category
+com.evilcorp.dev.trafficstop.R$string: int pref_internet_round
+com.evilcorp.dev.trafficstop.R$string: int pref_internet_round_summ
+com.evilcorp.dev.trafficstop.R$string: int pref_internet_tarif
+com.evilcorp.dev.trafficstop.R$string: int pref_internet_tarif_summary
+com.evilcorp.dev.trafficstop.R$string: int pref_tarif_val
+com.evilcorp.dev.trafficstop.R$string: int privat
 com.evilcorp.dev.trafficstop.R$string: int six_months
 com.evilcorp.dev.trafficstop.R$string: int start
 com.evilcorp.dev.trafficstop.R$string: int start_serv
+com.evilcorp.dev.trafficstop.R$string: int started_service
 com.evilcorp.dev.trafficstop.R$string: int stat
 com.evilcorp.dev.trafficstop.R$string: int statistic_text
 com.evilcorp.dev.trafficstop.R$string: int stop
 com.evilcorp.dev.trafficstop.R$string: int stop_serv
+com.evilcorp.dev.trafficstop.R$string: int stopped_service
 com.evilcorp.dev.trafficstop.R$string: int traff_control
 com.evilcorp.dev.trafficstop.R$string: int traff_usage
 com.evilcorp.dev.trafficstop.R$string: int update
+com.evilcorp.dev.trafficstop.R$string: int version
+com.evilcorp.dev.trafficstop.R$string: int web_money
 com.evilcorp.dev.trafficstop.R$string: int week
 com.evilcorp.dev.trafficstop.R$string: int week_traff
+com.evilcorp.dev.trafficstop.R$string: int widget_all
+com.evilcorp.dev.trafficstop.R$string: int widget_left
+com.evilcorp.dev.trafficstop.R$string: int widget_name
+com.evilcorp.dev.trafficstop.R$string: int widget_used
 com.evilcorp.dev.trafficstop.R$string: int year
 com.evilcorp.dev.trafficstop.R$string: int year_traff
 com.evilcorp.dev.trafficstop.R$string: int yes
 com.evilcorp.dev.trafficstop.R$style: int AppBaseTheme
 com.evilcorp.dev.trafficstop.R$style: int AppTheme
+com.evilcorp.dev.trafficstop.R$style: int ButtonTheme
 com.evilcorp.dev.trafficstop.R$style: int DarkTheme
 com.evilcorp.dev.trafficstop.R$xml: int preferences
+com.evilcorp.dev.trafficstop.R$xml: int widget_metadata
 com.evilcorp.dev.trafficstop.Statistic
 com.evilcorp.dev.trafficstop.Statistic: Statistic()
 com.evilcorp.dev.trafficstop.Statistic: void clear_data(android.view.View)
@@ -152,6 +220,8 @@ com.evilcorp.dev.trafficstop.TrafficControl
 com.evilcorp.dev.trafficstop.TrafficControl: TrafficControl()
 com.evilcorp.dev.trafficstop.TrafficControl: void stopServ(android.view.View)
 com.evilcorp.dev.trafficstop.TrafficControl: void startServ(android.view.View)
+com.evilcorp.dev.trafficstop.TrafficWidget
+com.evilcorp.dev.trafficstop.TrafficWidget: TrafficWidget()
 com.google.ads.AdActivity
 com.google.ads.AdActivity: AdActivity()
 com.google.ads.AdActivity: void onClick(android.view.View)

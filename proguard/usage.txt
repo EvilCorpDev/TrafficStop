@@ -912,9 +912,14 @@ com.evilcorp.dev.trafficstop.DB:
     public static final java.lang.String COLUMN_END
     public static final java.lang.String DB_CREATE
     80:90:public java.util.HashMap getLastRec()
-    103:104:public void delRec(long)
+    102:103:public void delRec(long)
+com.evilcorp.dev.trafficstop.Preferences:
+    android.view.GestureDetector gestureScanner
 com.evilcorp.dev.trafficstop.R
+com.evilcorp.dev.trafficstop.R$anim
+com.evilcorp.dev.trafficstop.R$array
 com.evilcorp.dev.trafficstop.R$attr
+com.evilcorp.dev.trafficstop.R$color
 com.evilcorp.dev.trafficstop.R$dimen
 com.evilcorp.dev.trafficstop.R$drawable
 com.evilcorp.dev.trafficstop.R$id
@@ -923,13 +928,22 @@ com.evilcorp.dev.trafficstop.R$menu
 com.evilcorp.dev.trafficstop.R$string
 com.evilcorp.dev.trafficstop.R$style
 com.evilcorp.dev.trafficstop.R$xml
+com.evilcorp.dev.trafficstop.Statistic:
+    private static final int SWIPE_MIN_DISTANCE
+    private static final int SWIPE_THRESHOLD_VELOCITY
 com.evilcorp.dev.trafficstop.TrafficConrolService:
     public static final double BytesCount
 com.evilcorp.dev.trafficstop.TrafficControl:
     public static final java.lang.String LOG_TAG
     public static final java.lang.String BROADCAST_ACTION
+    private static final int SWIPE_MIN_DISTANCE
+    private static final int SWIPE_THRESHOLD_VELOCITY
+    boolean isEnable
+    android.widget.ImageView imView
     java.util.Timer t
     java.util.TimerTask tt
+com.evilcorp.dev.trafficstop.TrafficWidget:
+    android.content.BroadcastReceiver br
 com.google.ads.Ad:
     public abstract boolean isReady()
     public abstract void loadAd(com.google.ads.AdRequest)

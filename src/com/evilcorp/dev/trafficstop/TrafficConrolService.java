@@ -75,12 +75,12 @@ public class TrafficConrolService extends Service {
 			PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent1,
 					0);
 			notif = new NotificationCompat.Builder(this)
-			.setSmallIcon(R.drawable.icon)
-			.setContentTitle(
-					getResources().getString(R.string.app_name))
+					.setSmallIcon(R.drawable.icon)
+					.setContentTitle(
+							getResources().getString(R.string.app_name))
 					.setContentText(
 							getResources().getString(R.string.traff_control))
-							.setContentIntent(pIntent);
+					.setContentIntent(pIntent);
 			startForeground(2, notif.build());
 		} else {
 			sendNotif(2, true, getResources().getString(R.string.app_name),
@@ -107,8 +107,12 @@ public class TrafficConrolService extends Service {
 	}
 
 	private void initialize() {
-		db = new DB(this);
-		db.open();
+		try {
+			db = new DB(this);
+			db.open();
+		} catch (Exception e) {
+
+		}
 		ctr = new Controls(this);
 
 		sPref = PreferenceManager.getDefaultSharedPreferences(this);
@@ -157,9 +161,14 @@ public class TrafficConrolService extends Service {
 		Log.d("myLogs", "onDestroy serve");
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.DATE, 0);
-		db.updateRec(c.get(Calendar.DATE) + "-" + (c.get(Calendar.MONTH) + 1)
-				+ "-" + c.get(Calendar.YEAR), traff);
-		db.close();
+		try {
+			db.updateRec(c.get(Calendar.DATE) + "-"
+					+ (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR),
+					traff);
+			db.close();
+		} catch (Exception e) {
+			Log.d("myLogs", e.getMessage());
+		}
 		disableTimers();
 		sendNotif(2, false, getResources().getString(R.string.app_name),
 				getResources().getString(R.string.traff_control), true);
@@ -178,12 +187,16 @@ public class TrafficConrolService extends Service {
 	}
 
 	private void controlTraff() {
-		newTaskControl();
-		tC.schedule(ttControl, 100, 1000);
+		try {
+			newTaskControl();
+			tC.schedule(ttControl, 100, 1000);
+		} catch (Exception e) {
+			Log.d("myLogs", e.getMessage());
+		}
 	}
 
 	private void newTaskControl() {
-		if(ttControl != null) {
+		if (ttControl != null) {
 			ttControl.cancel();
 		}
 		ttControl = new TimerTask() {
@@ -193,62 +206,83 @@ public class TrafficConrolService extends Service {
 				// TODO Auto-generated method stub
 				Calendar c = Calendar.getInstance();
 				c.add(Calendar.DATE, 0);
-				traff = TrafficStats.getMobileRxBytes() 
-						+ TrafficStats.getMobileTxBytes() + currentTraff - startTraff;	
+				traff = TrafficStats.getMobileRxBytes()
+						+ TrafficStats.getMobileTxBytes() + currentTraff
+						- startTraff;
 				double allTraff = traff;
 				try {
-					if(db.dbIsOpen()) {
-						HashMap<String, Double> hm2 = db.getDateData(c.get(Calendar.DATE) 
-								+ "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR));			
-						if(hm2 != null) {
+					if (db.dbIsOpen()) {
+						HashMap<String, Double> hm2 = db.getDateData(c
+								.get(Calendar.DATE)
+								+ "-"
+								+ (c.get(Calendar.MONTH) + 1)
+								+ "-"
+								+ c.get(Calendar.YEAR));
+						if (hm2 != null) {
 							allTraff += hm2.get("end");
 						}
 					}
+				} catch (NullPointerException exc) {
+
 				}
-				catch(NullPointerException exc) {
-					
-				}
-				Intent intent  = new Intent(TrafficControl.BROADCAST_ACTION)
-				.putExtra("allTraff", allTraff/BytesCount)
-				.putExtra("traff", traff/BytesCount)
-				.putExtra("mBytes", mBytes);
+				Intent intent = new Intent(TrafficControl.BROADCAST_ACTION)
+						.putExtra("allTraff", allTraff / BytesCount)
+						.putExtra("traff", traff / BytesCount)
+						.putExtra("mBytes", mBytes);
 				sendBroadcast(intent);
-				if(!ctr.isConnected()) {
-					if(sPref.getBoolean("Disconect", true) && tarif > 0) {
-						traff += (tarif - ((int)traff % tarif));
+				if (!ctr.isConnected()) {
+					if (sPref.getBoolean("Disconect", true) && tarif > 0) {
+						traff += (tarif - ((int) traff % tarif));
 						Editor ed = sPref.edit();
 						ed.putBoolean("Disconect", false);
 						ed.putBoolean("Connected", true);
 						ed.commit();
 					}
-				}
-				else if(ctr.isConnected()) {
-					if(sPref.getBoolean("Connected", true)) {
+				} else if (ctr.isConnected()) {
+					if (sPref.getBoolean("Connected", true)) {
 						Editor ed = sPref.edit();
 						ed.putBoolean("Disconect", true);
 						ed.putBoolean("Connected", false);
 						ed.commit();
 					}
 				}
-				if(isRound) {
-					if(!isLimit && Math.round(traff) >= mBytes * BytesCount) {
-						ctr.changeState(false);
-						sendNotif(1, false, getResources().getString(R.string.app_name), 
-								getResources().getString(R.string.notif_status), false);
-						isLimit = true;
-						sPref.edit().putBoolean("isLimit", true);
-						db.updateRec(c.get(Calendar.DATE) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR), traff);
+				try {
+					if (isRound) {
+						if (!isLimit
+								&& Math.round(traff) >= mBytes * BytesCount) {
+							ctr.changeState(false);
+							sendNotif(
+									1,
+									false,
+									getResources().getString(R.string.app_name),
+									getResources().getString(
+											R.string.notif_status), false);
+							isLimit = true;
+							sPref.edit().putBoolean("isLimit", true);
+							db.updateRec(
+									c.get(Calendar.DATE) + "-"
+											+ (c.get(Calendar.MONTH) + 1) + "-"
+											+ c.get(Calendar.YEAR), traff);
+						}
+					} else {
+						if (!isLimit && traff >= mBytes * BytesCount) {
+							ctr.changeState(false);
+							sendNotif(
+									1,
+									false,
+									getResources().getString(R.string.app_name),
+									getResources().getString(
+											R.string.notif_status), false);
+							isLimit = true;
+							sPref.edit().putBoolean("isLimit", true);
+							db.updateRec(
+									c.get(Calendar.DATE) + "-"
+											+ (c.get(Calendar.MONTH) + 1) + "-"
+											+ c.get(Calendar.YEAR), traff);
+						}
 					}
-				}
-				else {
-					if(!isLimit && traff >= mBytes * BytesCount) {
-						ctr.changeState(false);
-						sendNotif(1, false, getResources().getString(R.string.app_name), 
-								getResources().getString(R.string.notif_status), false);
-						isLimit = true;
-						sPref.edit().putBoolean("isLimit", true);
-						db.updateRec(c.get(Calendar.DATE) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR), traff);
-					}
+				} catch (Exception e) {
+					Log.d("myLogs", e.getMessage());
 				}
 
 				changeRecs();
@@ -278,7 +312,7 @@ public class TrafficConrolService extends Service {
 						c.get(Calendar.DATE) + "-"
 								+ (c.get(Calendar.MONTH) + 1) + "-"
 								+ c.get(Calendar.YEAR), hm1.get("end"),
-								hm1.get("end"));
+						hm1.get("end"));
 			}
 			startTraff = TrafficStats.getMobileRxBytes()
 					+ TrafficStats.getMobileTxBytes();
@@ -294,8 +328,8 @@ public class TrafficConrolService extends Service {
 		NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
 		notif = new NotificationCompat.Builder(this)
-		.setSmallIcon(R.drawable.icon).setContentTitle(title)
-		.setContentText(text).setOngoing(ongoing);
+				.setSmallIcon(R.drawable.icon).setContentTitle(title)
+				.setContentText(text).setOngoing(ongoing);
 
 		if (cancel) {
 			nm.cancel(id);

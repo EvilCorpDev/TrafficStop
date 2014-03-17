@@ -1313,12 +1313,15 @@ android.support.v4.widget.ViewDragHelper$Callback -> android.support.v4.widget.a
     boolean tryCaptureView(android.view.View,int) -> a
     int clampViewPositionHorizontal(android.view.View,int,int) -> a
     int clampViewPositionVertical(android.view.View,int,int) -> b
+com.evilcorp.dev.trafficstop.About -> com.evilcorp.dev.trafficstop.About:
+    void onCreate(android.os.Bundle) -> onCreate
+    void sendMessage(android.view.View) -> sendMessage
 com.evilcorp.dev.trafficstop.AutoBroadReceiv -> com.evilcorp.dev.trafficstop.AutoBroadReceiv:
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.evilcorp.dev.trafficstop.Controls -> com.evilcorp.dev.trafficstop.a:
     android.content.Context context -> a
     boolean isConnected() -> a
-    void changeState(boolean) -> changeState
+    void changeState(boolean) -> a
 com.evilcorp.dev.trafficstop.DB -> com.evilcorp.dev.trafficstop.b:
     android.content.Context ctx -> a
     com.evilcorp.dev.trafficstop.DB$DBHelper mDBHelper -> b
@@ -1342,13 +1345,15 @@ com.evilcorp.dev.trafficstop.Diagram -> com.evilcorp.dev.trafficstop.d:
     org.achartengine.model.XYMultipleSeriesDataset buildDataset(java.lang.String,double[],double[]) -> a
 com.evilcorp.dev.trafficstop.Preferences -> com.evilcorp.dev.trafficstop.Preferences:
     void onCreate(android.os.Bundle) -> onCreate
+    void onBackPressed() -> onBackPressed
 com.evilcorp.dev.trafficstop.Statistic -> com.evilcorp.dev.trafficstop.Statistic:
     int DIALOG_ID -> a
     com.evilcorp.dev.trafficstop.Diagram d -> b
     com.evilcorp.dev.trafficstop.DB db -> c
     android.content.SharedPreferences sPref -> d
     android.content.Context context -> e
-    android.content.DialogInterface$OnClickListener myClickListener -> f
+    android.view.GestureDetector gestureScanner -> f
+    android.content.DialogInterface$OnClickListener myClickListener -> g
     void onCreate(android.os.Bundle) -> onCreate
     void onDestroy() -> onDestroy
     void clear_data(android.view.View) -> clear_data
@@ -1358,6 +1363,14 @@ com.evilcorp.dev.trafficstop.Statistic -> com.evilcorp.dev.trafficstop.Statistic
     java.util.HashMap getLastData(android.database.Cursor,int) -> a
     java.util.List getMonths(java.util.List) -> a
     double[] getArray(java.util.List) -> b
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    boolean onDown(android.view.MotionEvent) -> onDown
+    boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    void onBackPressed() -> onBackPressed
+    void onLongPress(android.view.MotionEvent) -> onLongPress
+    boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    void onShowPress(android.view.MotionEvent) -> onShowPress
+    boolean onSingleTapUp(android.view.MotionEvent) -> onSingleTapUp
 com.evilcorp.dev.trafficstop.Statistic$1 -> com.evilcorp.dev.trafficstop.e:
     com.evilcorp.dev.trafficstop.Statistic this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
@@ -1371,8 +1384,10 @@ com.evilcorp.dev.trafficstop.TrafficConrolService -> com.evilcorp.dev.trafficsto
     double traff -> g
     double mBytes -> h
     boolean isLimit -> i
-    com.evilcorp.dev.trafficstop.DB db -> j
-    com.evilcorp.dev.trafficstop.Controls ctr -> k
+    boolean isRound -> j
+    int tarif -> k
+    com.evilcorp.dev.trafficstop.DB db -> l
+    com.evilcorp.dev.trafficstop.Controls ctr -> m
     void onCreate() -> onCreate
     int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     void initialize() -> a
@@ -1383,21 +1398,25 @@ com.evilcorp.dev.trafficstop.TrafficConrolService -> com.evilcorp.dev.trafficsto
     void controlTraff() -> d
     void newTaskControl() -> e
     void changeRecs() -> f
-    void sendNotif(int,boolean,java.lang.String,java.lang.String) -> a
+    void sendNotif(int,boolean,java.lang.String,java.lang.String,java.lang.Boolean) -> a
     void access$0(com.evilcorp.dev.trafficstop.TrafficConrolService) -> a
 com.evilcorp.dev.trafficstop.TrafficConrolService$1 -> com.evilcorp.dev.trafficstop.f:
     com.evilcorp.dev.trafficstop.TrafficConrolService this$0 -> a
     void run() -> run
 com.evilcorp.dev.trafficstop.TrafficControl -> com.evilcorp.dev.trafficstop.TrafficControl:
-    double mBytes -> a
-    boolean isEnable -> b
+    int DIALOG -> a
+    double mBytes -> b
     int startCount -> c
     android.widget.TextView tvMain -> d
-    android.widget.ImageView imView -> e
-    android.widget.ProgressBar pbLimit -> f
-    com.evilcorp.dev.trafficstop.Controls ctr -> g
-    android.content.SharedPreferences sdPref -> h
-    android.content.BroadcastReceiver br -> i
+    android.widget.TextView tvLimit -> e
+    android.widget.TextView tvProgress -> f
+    android.widget.ProgressBar pbLimit -> g
+    com.evilcorp.dev.trafficstop.Controls ctr -> h
+    android.content.SharedPreferences sdPref -> i
+    android.content.BroadcastReceiver br -> j
+    android.view.GestureDetector gestureScanner -> k
+    int runActivity -> l
+    android.content.DialogInterface$OnClickListener myClickListener -> m
     void onCreate(android.os.Bundle) -> onCreate
     void initialize() -> a
     void updateText(double,double) -> a
@@ -1409,10 +1428,30 @@ com.evilcorp.dev.trafficstop.TrafficControl -> com.evilcorp.dev.trafficstop.Traf
     void onResume() -> onResume
     void onPause() -> onPause
     void onDestroy() -> onDestroy
-    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    boolean onDown(android.view.MotionEvent) -> onDown
+    boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    void onBackPressed() -> onBackPressed
+    android.app.Dialog onCreateDialog(int) -> onCreateDialog
+    void onLongPress(android.view.MotionEvent) -> onLongPress
+    boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    void onShowPress(android.view.MotionEvent) -> onShowPress
+    boolean onSingleTapUp(android.view.MotionEvent) -> onSingleTapUp
 com.evilcorp.dev.trafficstop.TrafficControl$1 -> com.evilcorp.dev.trafficstop.g:
     com.evilcorp.dev.trafficstop.TrafficControl this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.evilcorp.dev.trafficstop.TrafficControl$2 -> com.evilcorp.dev.trafficstop.h:
+    com.evilcorp.dev.trafficstop.TrafficControl this$0 -> a
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.evilcorp.dev.trafficstop.TrafficWidget -> com.evilcorp.dev.trafficstop.TrafficWidget:
+    android.content.SharedPreferences sdPref -> a
+    java.lang.String OPEN_APP -> b
+    void onEnabled(android.content.Context) -> onEnabled
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[]) -> onUpdate
+    void updateText(android.content.Context,android.appwidget.AppWidgetManager,int,double,double,double) -> a
+    void onDeleted(android.content.Context,int[]) -> onDeleted
+    void onDisabled(android.content.Context) -> onDisabled
 com.google.ads.Ad -> com.google.ads.a:
 com.google.ads.AdActivity -> com.google.ads.AdActivity:
     com.google.ads.internal.a a -> a

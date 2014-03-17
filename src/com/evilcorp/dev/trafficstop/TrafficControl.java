@@ -18,6 +18,7 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.Menu;
@@ -153,6 +154,7 @@ public class TrafficControl extends Activity implements OnSharedPreferenceChange
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sd, String key) {
 		// TODO Auto-generated method stub
+		try {
 		if(key.equals("pref_Mbytes") || key.equals("pref_foreground")) {
 			stopServ(new View(this));
 			mBytes = Integer.parseInt(sd.getString("pref_Mbytes", "20"));
@@ -162,6 +164,10 @@ public class TrafficControl extends Activity implements OnSharedPreferenceChange
 		else if(key.equals("pref_round") || key.equals("pref_tarif")) {
 			stopServ(new View(this));
 			startService(new Intent(this, TrafficConrolService.class).putExtra("mBytes", mBytes));
+		}
+		}
+		catch(Exception e) {
+			Log.d(LOG_TAG, e.getMessage());
 		}
 	}
 	
