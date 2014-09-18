@@ -23,6 +23,8 @@ public class TrafficConrolService extends Service {
 
 	public static final double BytesCount = 1048576;
 
+	Intent myIntent;
+
 	Timer tC;
 	TimerTask ttControl;
 	NotificationCompat.Builder notif;
@@ -36,6 +38,10 @@ public class TrafficConrolService extends Service {
 
 	boolean isLimit;
 	boolean isRound;
+	boolean timeOff;
+
+	int hour = 0;
+	int minute = 0;
 
 	int tarif;
 
@@ -44,7 +50,6 @@ public class TrafficConrolService extends Service {
 
 	@Override
 	public void onCreate() {
-		// TODO Auto-generated method stub
 		super.onCreate();
 		startTraff = TrafficStats.getMobileRxBytes()
 				+ TrafficStats.getMobileTxBytes();
@@ -53,8 +58,7 @@ public class TrafficConrolService extends Service {
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		// TODO Auto-generated method stub
-		initialize();
+		initialize(intent);
 		mBytes = intent.getDoubleExtra("mBytes", 10);
 		checkRec();
 		traff = TrafficStats.getMobileRxBytes()
@@ -106,7 +110,7 @@ public class TrafficConrolService extends Service {
 		}
 	}
 
-	private void initialize() {
+	private void initialize(Intent intent) {
 		try {
 			db = new DB(this);
 			db.open();
@@ -114,10 +118,13 @@ public class TrafficConrolService extends Service {
 
 		}
 		ctr = new Controls(this);
-
 		sPref = PreferenceManager.getDefaultSharedPreferences(this);
 		isLimit = sPref.getBoolean("isLimit", false);
-
+		timeOff = intent.getBooleanExtra("timeOff", true);
+		if (timeOff) {
+			hour = intent.getIntExtra("hour", 8);
+			minute = intent.getIntExtra("minute", 0);
+		}
 		tC = new Timer();
 	}
 
@@ -156,7 +163,6 @@ public class TrafficConrolService extends Service {
 
 	@Override
 	public void onDestroy() {
-		// TODO Auto-generated method stub
 		super.onDestroy();
 		Log.d("myLogs", "onDestroy serve");
 		Calendar c = Calendar.getInstance();
@@ -165,7 +171,9 @@ public class TrafficConrolService extends Service {
 			db.updateRec(c.get(Calendar.DATE) + "-"
 					+ (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR),
 					traff);
-			db.close();
+			if (db.dbIsOpen()) {
+				db.close();
+			}
 		} catch (Exception e) {
 			Log.d("myLogs", e.getMessage());
 		}
@@ -203,7 +211,6 @@ public class TrafficConrolService extends Service {
 
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				Calendar c = Calendar.getInstance();
 				c.add(Calendar.DATE, 0);
 				traff = TrafficStats.getMobileRxBytes()
@@ -223,7 +230,10 @@ public class TrafficConrolService extends Service {
 						}
 					}
 				} catch (NullPointerException exc) {
-
+					Log.d("myLogs", exc.getMessage());
+				}
+				if (timeOff) {
+					stopInternetInTime(hour, minute);
 				}
 				Intent intent = new Intent(TrafficControl.BROADCAST_ACTION)
 						.putExtra("allTraff", allTraff / BytesCount)
@@ -351,4 +361,24 @@ public class TrafficConrolService extends Service {
 		nm.notify(id, notif.build());
 	}
 
+	private void stopInternetInTime(int hours, int minutes) {
+
+		Calendar c = Calendar.getInstance();
+		c.add(Calendar.DATE, 0);
+		if (c.get(Calendar.HOUR_OF_DAY) == hours
+				&& c.get(Calendar.MINUTE) == minutes
+				&& c.get(Calendar.SECOND) == 0) {
+			ctr.changeState(false);
+			sendNotif(1, false, getResources().getString(R.string.app_name),
+					getResources().getString(R.string.notif_status), false);
+			isLimit = true;
+			sPref.edit().putBoolean("isLimit", true);
+			if (db.dbIsOpen()) {
+				db.updateRec(
+						c.get(Calendar.DATE) + "-"
+								+ (c.get(Calendar.MONTH) + 1) + "-"
+								+ c.get(Calendar.YEAR), traff);
+			}
+		}
+	}
 }

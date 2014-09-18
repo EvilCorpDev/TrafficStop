@@ -1,52 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
     <PreferenceCategory
         android:key="pref_category_os"
-        android:title="@string/pref_category_os">
-        <CheckBoxPreference 
-            android:key="pref_autorun" 
-            android:title="@string/pref_auto" 
-            android:defaultValue="true" />
-        <CheckBoxPreference 
+        android:title="@string/pref_category_os" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_autorun"
+            android:title="@string/pref_auto" />
+        <CheckBoxPreference
+            android:defaultValue="true"
             android:key="pref_foreground"
-            android:title="@string/foreground"
             android:summary="@string/pref_foreground"
-            android:defaultValue="true"/>
-    </PreferenceCategory> 
-    <PreferenceCategory 
-        android:key="pref_internet" 
-        android:title="@string/pref_internet_category">
-        <EditTextPreference 
-            android:key="pref_Mbytes"
-            android:title="@string/pref_Mbytes_Title" 
-            android:summary="@string/pref_Mbytes_sum"
-            android:inputType="number"
-            android:defaultValue="20"
-            android:maxLength="5" />
-        <CheckBoxPreference 
-            android:key="pref_round" 
-            android:title="@string/pref_internet_round"
-            android:summary="@string/pref_internet_round_summ"
-            android:defaultValue="false"/>
-        <ListPreference 
-            android:dependency="pref_round"
-            android:key="pref_tarif"
-            android:title="@string/pref_internet_tarif"
-            android:dialogTitle="@string/pref_tarif_val"
-            android:summary="@string/pref_internet_tarif_summary"
-            android:defaultValue="0 kB"
-           	android:entries="@array/pref_internet_values"
-           	android:entryValues="@array/pref_internet_values"/>
+            android:title="@string/foreground" />
     </PreferenceCategory>
-    <PreferenceCategory 
+    <PreferenceCategory
+        android:key="pref_internet"
+        android:title="@string/pref_internet_category" >
+        <EditTextPreference
+            android:defaultValue="20"
+            android:inputType="number"
+            android:key="pref_Mbytes"
+            android:maxLength="5"
+            android:summary="@string/pref_Mbytes_sum"
+            android:title="@string/pref_Mbytes_Title" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_round"
+            android:summary="@string/pref_internet_round_summ"
+            android:title="@string/pref_internet_round" />
+
+        <ListPreference
+            android:defaultValue="0 kB"
+            android:dependency="pref_round"
+            android:dialogTitle="@string/pref_tarif_val"
+            android:entries="@array/pref_internet_values"
+            android:entryValues="@array/pref_internet_values"
+            android:key="pref_tarif"
+            android:summary="@string/pref_internet_tarif_summary"
+            android:title="@string/pref_internet_tarif" />
+
+        <CheckBoxPreference
+            android:key="pref_Time_on"
+            android:summary="@string/pref_time_on_summ"
+            android:title="@string/pref_Time_on" />
+        <com.evilcorp.dev.trafficstop.TimePickerPreference
+            android:key="pref_Time"
+            android:summary="@string/pref_time_summ"
+            android:title="@string/pref_time_title"
+            android:dependency="pref_Time_on" />
+    </PreferenceCategory>
+    <PreferenceCategory
         android:key="pref_key_about"
-        android:title="@string/pref_category_about">
-        <Preference 
-            android:key="pref_about" 
-            android:title="@string/pref_about">
-            <intent
-                android:action="com.evilcorp.dev.intent.VIEW"
-                />
+        android:title="@string/pref_category_about" >
+        <Preference
+            android:key="pref_about"
+            android:title="@string/pref_about" >
+            <intent android:action="com.evilcorp.dev.intent.VIEW" />
         </Preference>
     </PreferenceCategory>
+
 </PreferenceScreen>

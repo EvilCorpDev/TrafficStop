@@ -64,21 +64,22 @@ public final class R {
     }
     public static final class id {
         public static final int RelativeLayout1=0x7f0c0000;
-        public static final int action_settings=0x7f0c001e;
+        public static final int action_settings=0x7f0c0020;
         public static final int adView=0x7f0c000b;
-        public static final int button1=0x7f0c000e;
-        public static final int button2=0x7f0c000f;
-        public static final int clearBtn=0x7f0c0018;
+        public static final int btnStart=0x7f0c000f;
+        public static final int btnStop=0x7f0c0010;
+        public static final int clearBtn=0x7f0c0019;
+        public static final int linearLayout1=0x7f0c000e;
         public static final int lvMain=0x7f0c000a;
-        public static final int mkBtn=0x7f0c0017;
-        public static final int pbLimit=0x7f0c0010;
-        public static final int rBtnMonth=0x7f0c0014;
-        public static final int rBtnSixMonth=0x7f0c0015;
-        public static final int rBtnWeek=0x7f0c0013;
-        public static final int rBtnYear=0x7f0c0016;
-        public static final int rGroup=0x7f0c0012;
-        public static final int stat=0x7f0c001f;
-        public static final int textLimit=0x7f0c0011;
+        public static final int mkBtn=0x7f0c0018;
+        public static final int pbLimit=0x7f0c0011;
+        public static final int rBtnMonth=0x7f0c0015;
+        public static final int rBtnSixMonth=0x7f0c0016;
+        public static final int rBtnWeek=0x7f0c0014;
+        public static final int rBtnYear=0x7f0c0017;
+        public static final int rGroup=0x7f0c0013;
+        public static final int stat=0x7f0c0021;
+        public static final int textLimit=0x7f0c0012;
         public static final int textView1=0x7f0c0006;
         public static final int textView2=0x7f0c0005;
         public static final int textView3=0x7f0c0007;
@@ -87,20 +88,21 @@ public final class R {
         public static final int textView6=0x7f0c0002;
         public static final int textView7=0x7f0c0003;
         public static final int textView8=0x7f0c0009;
-        public static final int tvAll=0x7f0c001d;
+        public static final int timePicker1=0x7f0c001a;
+        public static final int tvAll=0x7f0c001f;
         public static final int tvInfo=0x7f0c000c;
-        public static final int tvInfoDigit=0x7f0c001b;
-        public static final int tvInfoLeft=0x7f0c001a;
+        public static final int tvInfoDigit=0x7f0c001d;
+        public static final int tvInfoLeft=0x7f0c001c;
         public static final int tvMain=0x7f0c000d;
         public static final int tvProgress=0x7f0c0004;
-        public static final int tvUsed=0x7f0c001c;
-        public static final int widgetLayout=0x7f0c0019;
+        public static final int tvUsed=0x7f0c001e;
+        public static final int widgetLayout=0x7f0c001b;
     }
     public static final class layout {
         public static final int about=0x7f030000;
-        public static final int first_start=0x7f030001;
-        public static final int main=0x7f030002;
-        public static final int statistic=0x7f030003;
+        public static final int main=0x7f030001;
+        public static final int statistic=0x7f030002;
+        public static final int timepicker_dialog=0x7f030003;
         public static final int widget=0x7f030004;
     }
     public static final class menu {
@@ -137,6 +139,7 @@ public final class R {
         public static final int notif_status=0x7f080005;
         public static final int pref_Mbytes_Title=0x7f080007;
         public static final int pref_Mbytes_sum=0x7f080008;
+        public static final int pref_Time_on=0x7f080041;
         public static final int pref_about=0x7f080034;
         public static final int pref_auto=0x7f080009;
         public static final int pref_category_about=0x7f08000b;
@@ -148,6 +151,9 @@ public final class R {
         public static final int pref_internet_tarif=0x7f080037;
         public static final int pref_internet_tarif_summary=0x7f080038;
         public static final int pref_tarif_val=0x7f08003a;
+        public static final int pref_time_on_summ=0x7f080042;
+        public static final int pref_time_summ=0x7f080043;
+        public static final int pref_time_title=0x7f080044;
         public static final int privat=0x7f08003d;
         public static final int six_months=0x7f080015;
         public static final int start=0x7f080004;

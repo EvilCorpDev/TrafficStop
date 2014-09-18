@@ -87,15 +87,18 @@ public class DB {
 			c.close();
 			return hm;
 		}
+		c.close();
 		return null;
 	}
 	
 	public void addRec(String date, double start, double end) {
+		db.beginTransaction();
 		ContentValues cv = new ContentValues();
 		cv.put(COLUMN_DATE, date);
 		cv.put(COLUMN_START, start);
 		cv.put(COLUMN_END, end);
 		db.insert(DB_TABLE, null, cv);
+		db.endTransaction();
 	}
 	
 	public void delRec(long id) {

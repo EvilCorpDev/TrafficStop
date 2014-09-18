@@ -80,4 +80,8 @@
 	<string name="version">Version 2.0</string>
 	<string name="date_release">March 2014</string>
 	<string name="copyright">Copyright © EvilCorp Dev 2013–2014</string>
+	<string name="pref_Time_on">Time to disable internet</string>
+	<string name="pref_time_on_summ">Set time when mobile internet will be disable</string>
+	<string name="pref_time_summ">Set time </string>
+	<string name="pref_time_title">Time to close Internet connection</string>
 </resources>
