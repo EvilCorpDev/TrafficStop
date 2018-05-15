@@ -1,0 +1,25 @@
+Эта политика конфиденциальности описывает условия получения и использования информации мобильными приложениями для использования приложения Traffic Defender
+Мы очень серьезно подходим к политике конфиденциальности. 
+Наши приложения предназначено исключительно для выключения трафика по заданному лимиту: 
+- Не собирают никакой пользовательской информации. 
+- Приложения запрашивают состояние телефона (android.permission.READ_PHONE_STATE) чтобы определять количество потребленного трафика пользователем, больше никаких данных о звонках приложение не собирает. 
+- Не содержат встроенных покупок. 
+Анонимная информация, которую мы получаем о Вас от сторонних сервисов, таких как Google Analytics, Google Play и других включает в себя: информацию об установке (например, тип операционной системы и номер версии приложения), информацию об устройстве (аппаратная модель и версия операционной системы) и информацию о поведении пользователя. 
+Все данные, которые мы собираем используются только для внутреннего анализа и исследований в целях улучшения наших продуктов и создания еще более лучших для Вас. 
+Мы не несем ответственность за последствия использования наших приложений, возникновения сбоев в устройствах или их поломки. 
+Наша политика конфиденциальности может меняться время от времени. Мы будем размещать какие-либо изменения Политики конфиденциальности на этой странице. 
+Если у вас есть какие-то вопросы относительно нашей политики безопасности, пожалуйста пишитенам: 
+androidghost77@gmail.com
+
+This privacy policy describes the conditions for obtaining and using information by mobile applications to use the Traffic Defender application
+We take the privacy policy very seriously.
+Our applications are designed solely to turn off traffic for a given limit:
+- Do not collect any user information.
+- Applications request the phone status (android.permission.READ_PHONE_STATE) to determine the amount of traffic consumed by the user, the application does not collect any more data about calls.
+- Does not contain built-in purchases.
+The anonymous information we receive about you from third-party services such as Google Analytics, Google Play and others includes: installation information (for example, the type of operating system and version number of the application), device information (hardware model and operating system version ) and information about the user's behavior.
+All the data we collect is used only for internal analysis and research in order to improve our products and create even better ones for you.
+We are not responsible for the consequences of using our applications, the occurrence of breakdowns in devices or their failure.
+Our privacy policy may change from time to time. We will post any changes to the Privacy Policy on this page.
+If you have any questions about our security policy, please write to us:
+androidghost77@gmail.com
